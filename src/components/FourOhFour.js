@@ -13,12 +13,18 @@ const BodyLink = styled(Link)`
   font-weight: 600;
 `;
 
+const Code = styled.code`
+  font-weight: 600;
+`;
+
 // Component Definition
-function FourOhFour() {
+function FourOhFour({ location }) {
   return (
     <Wrapper>
       <SectionTitle>Oops!</SectionTitle>
-      <p>This page doesn't exist.</p>
+      <p>
+        The page for <Code>"{location.pathname}"</Code> doesn't exist.
+      </p>
       <p>
         Head back to the <BodyLink to="/">Home page</BodyLink> to find your way
         again
