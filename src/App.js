@@ -3,8 +3,8 @@ import React from 'react';
 
 // Internal Dependencies
 import Header from './components/Header';
+import Routes from './Routes';
 import TopNav from './components/TopNav';
-import Wrapper from './components/Wrapper';
 import './App.css';
 
 // Component Definition
@@ -13,7 +13,7 @@ function App() {
     <div className="App">
       <TopNav />
       <Header />
-      <Wrapper>Content</Wrapper>
+      <Routes />
     </div>
   );
 }
