@@ -1,15 +1,10 @@
 // External Dependencies
-// import React from "react";
-import { styled } from 'styled-components';
-
-const world = 'hello';
-
-console.log(world);
+import styled from 'styled-components';
 
 // Component Definition
 const Wrapper = styled.section`
   padding: 4em;
-  background: rebeccapurple;
+  background: #f2f5f7;
 `;
 
 export default Wrapper;

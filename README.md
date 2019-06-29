@@ -8,7 +8,7 @@ It's like a hat on a hat...it's a Netlify API built on top of the Netlify API ho
 
 ## To Use
 
-1. Either provide your own .env file with your [Netlify API Token](https://app.netlify.com/user/applications) or provide your API token in the handy input in the app.
+1. Either provide your own .env file with your [Netlify API Token](https://app.netlify.com/user/applications) or provide your **Account ID** in the handy input in the app.
 2. Choose what to do next!
 
 ### Built with

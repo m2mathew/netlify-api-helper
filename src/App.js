@@ -1,24 +1,19 @@
+// External Dependencies
 import React from 'react';
-import logo from './logo.svg';
+
+// Internal Dependencies
+import Header from './components/Header';
+import TopNav from './components/TopNav';
+import Wrapper from './components/Wrapper';
 import './App.css';
 
+// Component Definition
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <TopNav />
+      <Header />
+      <Wrapper>Content</Wrapper>
     </div>
   );
 }
