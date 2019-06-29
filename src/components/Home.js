@@ -4,13 +4,10 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 // Internal Dependencies
+import SectionTitle from './SectionTitle';
 import Wrapper from './Wrapper';
 
 // Local Variables
-const HomeTitle = styled.h2`
-  font-family: 'Rubik Mono One';
-`;
-
 const StartButton = styled.button`
   background: linear-gradient(160deg, rebeccapurple 30%, #280154 90%);
   color: #fff;
@@ -27,7 +24,7 @@ const StartButton = styled.button`
   }
 
   &:hover {
-    color: #ffd9e2;
+    color: #eee;
   }
 `;
 
@@ -40,7 +37,7 @@ const ButtonLink = styled(Link)`
 function Home() {
   return (
     <Wrapper>
-      <HomeTitle>Welcome, Friend!</HomeTitle>
+      <SectionTitle>Welcome, Friend!</SectionTitle>
       <p>
         This simple tool provides some of the basic functionality of Netlify's
         main app.

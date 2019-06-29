@@ -1,7 +1,7 @@
 // External Dependencies
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 // Local Variables
 const NavWrapper = styled.nav`
@@ -19,7 +19,7 @@ const SiteTitle = styled.h3`
   text-shadow: 0 0 0 transparent, 0 0 10px #ff003c,
     0 0 10px rgba(255, 0, 60, 0.5), 0 0 30px #ff003c, 0 0 80px #ff003c,
     0 0 180px #ff003c, 0 0 2600px #ff003c, 0 0 4500px #ff003c, 0 0 800px #ff003c;
-  animation: blink 60s infinite alternate;
+  animation: blink 30s infinite alternate;
 
   @keyframes blink {
     40% {
@@ -47,23 +47,36 @@ const List = styled.ul`
 `;
 
 const ListItem = styled.li`
-  margin-left: 16px;
+  margin-left: 32px;
+`;
+
+const StyledHomeLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+`;
+
+const StyledNavLink = styled(NavLink)`
+  text-decoration: ${props => !console.log('propss...', props) && 'none'};
+  font-weight: 600;
+
+  &.active {
+    border-bottom: 2px solid #fafafa;
+  }
 `;
 
 // Component Definition
 function TopNav() {
   return (
     <NavWrapper>
-      <SiteTitle>Netlify API Helper</SiteTitle>
+      <SiteTitle>
+        <StyledHomeLink to="/">Netlify API Helper</StyledHomeLink>
+      </SiteTitle>
       <List>
         <ListItem>
-          <Link to="/">Home</Link>
+          <StyledNavLink to="/sites/">Sites</StyledNavLink>
         </ListItem>
         <ListItem>
-          <Link to="/sites/">Sites</Link>
-        </ListItem>
-        <ListItem>
-          <Link to="/about/">About</Link>
+          <StyledNavLink to="/about/">About</StyledNavLink>
         </ListItem>
       </List>
     </NavWrapper>
