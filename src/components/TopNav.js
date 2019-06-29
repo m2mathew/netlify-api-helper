@@ -56,11 +56,12 @@ const StyledHomeLink = styled(Link)`
 `;
 
 const StyledNavLink = styled(NavLink)`
-  text-decoration: ${props => !console.log('propss...', props) && 'none'};
+  text-decoration: none;
   font-weight: 600;
 
   &.active {
     border-bottom: 2px solid #fafafa;
+    padding-bottom: 2px;
   }
 `;
 
