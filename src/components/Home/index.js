@@ -42,10 +42,12 @@ function Home() {
         This simple tool provides some of the basic functionality of Netlify's
         main app.
       </p>
-      <p>To get started on this quest, click the button below!</p>
-      <StartButton>
-        <ButtonLink to="/setup/">START</ButtonLink>
-      </StartButton>
+      <p>
+        To get started on this quest, click the button below to set up this app.
+      </p>
+      <ButtonLink to="/setup/">
+        <StartButton>Setup</StartButton>
+      </ButtonLink>
     </Wrapper>
   );
 }
