@@ -76,7 +76,7 @@ function TopNav() {
           <StyledNavLink to="/sites/">Sites</StyledNavLink>
         </ListItem>
         <ListItem>
-          <StyledNavLink to="/about/">About</StyledNavLink>
+          <StyledNavLink to="/account/">Account</StyledNavLink>
         </ListItem>
       </List>
     </NavWrapper>

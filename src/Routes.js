@@ -3,7 +3,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 
 // Internal Dependencies
-import About from './components/About';
+import Account from './components/Account';
 import Home from './components/Home';
 import Sites from './components/Sites';
 
@@ -12,7 +12,7 @@ function Routes() {
   return (
     <>
       <Route component={Home} exact path="/" />
-      <Route component={About} path="/about/" />
+      <Route component={Account} path="/account/" />
       <Route component={Sites} path="/sites/" />
     </>
   );

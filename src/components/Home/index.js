@@ -4,8 +4,8 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 // Internal Dependencies
-import SectionTitle from './SectionTitle';
-import Wrapper from './Wrapper';
+import SectionTitle from '../SectionTitle';
+import Wrapper from '../Wrapper';
 
 // Local Variables
 const StartButton = styled.button`

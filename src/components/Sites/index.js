@@ -2,18 +2,18 @@
 import React from 'react';
 
 // Internal Dependencies
-import SectionTitle from './SectionTitle';
-import Wrapper from './Wrapper';
+import SectionTitle from '../SectionTitle';
+import Wrapper from '../Wrapper';
 
 // Local Variables
 
 // Component Definition
-function About() {
+function Sites() {
   return (
     <Wrapper>
-      <SectionTitle>About section</SectionTitle>
+      <SectionTitle>Sites section</SectionTitle>
     </Wrapper>
   );
 }
 
-export default About;
+export default Sites;
