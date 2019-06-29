@@ -57,6 +57,7 @@ const StyledHomeLink = styled(Link)`
 
 const StyledNavLink = styled(NavLink)`
   text-decoration: none;
+  font-size: 18px;
   font-weight: 600;
 
   &.active {
