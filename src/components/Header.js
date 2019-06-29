@@ -7,6 +7,8 @@ import NetlifyLogo from './NetlifyLogo.svg';
 
 // Local Variables
 const HeaderWrapper = styled.header`
+  display: flex;
+  justify-content: center;
   background: #f2f5f7;
   padding: 2em;
   border-bottom: 5px solid #0e1e24;
