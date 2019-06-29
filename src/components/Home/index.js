@@ -44,7 +44,7 @@ function Home() {
       </p>
       <p>To get started on this quest, click the button below!</p>
       <StartButton>
-        <ButtonLink to="/about/">START</ButtonLink>
+        <ButtonLink to="/setup/">START</ButtonLink>
       </StartButton>
     </Wrapper>
   );
