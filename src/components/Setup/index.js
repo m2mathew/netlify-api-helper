@@ -1,5 +1,5 @@
 // External Dependencies
-import React from 'react';
+import React, { useState } from 'react';
 
 // Internal Dependencies
 import SectionTitle from '../SectionTitle';
@@ -9,9 +9,11 @@ import Wrapper from '../Wrapper';
 
 // Component Definition
 function Setup() {
+  const [accountId, setAccountId] = useState('');
+
   return (
     <Wrapper>
-      <SectionTitle>Setup section</SectionTitle>
+      <SectionTitle>Let's get your Account info</SectionTitle>
     </Wrapper>
   );
 }
