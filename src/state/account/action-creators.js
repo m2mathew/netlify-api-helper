@@ -5,8 +5,15 @@ import {
   ACCCOUNT_POST_REQUEST,
   ACCCOUNT_POST_SUCCESS,
   ACCCOUNT_PUT_REQUEST,
-  ACCCOUNT_PUT_SUCCESS
+  ACCCOUNT_PUT_SUCCESS,
+  ERROR_CAUGHT
 } from '../action-types';
+
+// Begin Action Creators
+export const caughtError = err => ({
+  type: ERROR_CAUGHT,
+  err
+});
 
 export const accountGetRequest = () => ({
   type: ACCCOUNT_GET_REQUEST

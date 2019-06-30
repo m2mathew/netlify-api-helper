@@ -37,8 +37,10 @@ function Setup(props) {
       }, 3000);
     } else if (isTokenChecked && !hasToken) {
       setHasToken(false);
+    } else if (isTokenChecked && hasToken) {
+      onGetNetlifyAccount(process.env.REACT_APP_NETLIFY_KEY);
     }
-  }, [hasToken, isTokenChecked, accountId]);
+  }, [hasToken, isTokenChecked, accountId, onGetNetlifyAccount]);
 
   const showProgress = !isTokenChecked && !hasToken;
 

@@ -9,7 +9,8 @@ import {
   ACCCOUNT_POST_REQUEST,
   ACCCOUNT_POST_SUCCESS,
   ACCCOUNT_PUT_REQUEST,
-  ACCCOUNT_PUT_SUCCESS
+  ACCCOUNT_PUT_SUCCESS,
+  ERROR_CAUGHT
 } from '../action-types';
 
 const initialState = {};
@@ -22,17 +23,20 @@ export const apiData = createReducer(initialState, {
 
 export const isGetting = createReducer(false, {
   [ACCCOUNT_GET_REQUEST]: () => true,
-  [ACCCOUNT_GET_SUCCESS]: () => false
+  [ACCCOUNT_GET_SUCCESS]: () => false,
+  [ERROR_CAUGHT]: () => false
 });
 
 export const isPosting = createReducer(false, {
   [ACCCOUNT_POST_REQUEST]: () => true,
-  [ACCCOUNT_POST_SUCCESS]: () => false
+  [ACCCOUNT_POST_SUCCESS]: () => false,
+  [ERROR_CAUGHT]: () => false
 });
 
 export const isPutting = createReducer(false, {
   [ACCCOUNT_PUT_REQUEST]: () => true,
-  [ACCCOUNT_PUT_SUCCESS]: () => false
+  [ACCCOUNT_PUT_SUCCESS]: () => false,
+  [ERROR_CAUGHT]: () => false
 });
 
 export default combineReducers({

@@ -1,21 +1,25 @@
 // Internal Dependencies
 import { netlifyClient } from '../client';
-import { accountGetRequest, accountGetSuccess } from './action-creators';
+import {
+  accountGetRequest,
+  accountGetSuccess,
+  caughtError
+} from './action-creators';
 
 // Begin Actions
-export const getNetlifyAccount = id => async dispatch => {
+export const getNetlifyAccount = id => dispatch => {
   dispatch(accountGetRequest());
-  let account;
-
-  try {
-    account = await netlifyClient.getAccount({
+  return netlifyClient
+    .getAccount({
       account_id: id
+    })
+    .then(res => {
+      console.log('getNetlifyAccount : res :', res);
+      dispatch(accountGetSuccess(res));
+    })
+    .catch(err => {
+      console.log('getNetlifyAccount : err :', err);
+      dispatch(caughtError(err));
+      return err;
     });
-  } catch (err) {
-    console.log('getNetlifyAccount : error :', err);
-    return { err };
-  }
-
-  console.log('getNetlifyAccount : account :', account);
-  return dispatch(accountGetSuccess(account));
 };
