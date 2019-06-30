@@ -14,8 +14,8 @@ import DialogAddToken from './DialogAddToken';
 // Local Variables
 const propTypes = {
   isGetting: PropTypes.bool.isRequired,
-  onGetNetlifyUser: PropTypes.bool.isRequired,
-  onSetNetlifyApiToken: PropTypes.bool.isRequired
+  onGetNetlifyUser: PropTypes.func.isRequired,
+  onSetNetlifyApiToken: PropTypes.func.isRequired
 };
 
 const AddTokenButton = styled.button`
@@ -90,8 +90,10 @@ function Setup(props) {
         </div>
       )}
       <DialogAddToken
+        isGettingUser={isGetting}
         isOpen={isDialogAddTokenOpen}
         onClose={handleToggleDialogAddToken}
+        onGetNetlifyUser={onGetNetlifyUser}
         onSetNetlifyApiToken={onSetNetlifyApiToken}
       />
     </Wrapper>
