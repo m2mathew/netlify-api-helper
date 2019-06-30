@@ -17,6 +17,7 @@ const initialState = {};
 // Reducer Definitions
 export const apiData = createReducer(initialState, {
   [ACCCOUNT_GET_SUCCESS]: (state, action) => action.res
+  // TODO: Add PUT/POST data in this spot
 });
 
 export const isGetting = createReducer(null, {
