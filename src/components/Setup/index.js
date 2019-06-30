@@ -7,24 +7,20 @@ import React, { useEffect, useState } from 'react';
 import SectionTitle from '../SectionTitle';
 import Wrapper from '../Wrapper';
 import { connectComponent } from '../../utils';
-import { getNetlifyAccount } from '../../state/account/actions';
+import { getNetlifyUser } from '../../state/user/actions';
 
 // Local Variables
 const propTypes = {
   isGetting: PropTypes.bool.isRequired,
-  onGetNetlifyAccount: PropTypes.bool.isRequired
+  onGetNetlifyUser: PropTypes.bool.isRequired
 };
 
 // Component Definition
 function Setup(props) {
-  const { isGetting, onGetNetlifyAccount } = props;
-
-  console.log('isGetting', isGetting);
-  console.log('onGetNetlifyAccount', onGetNetlifyAccount);
+  const { isGetting, onGetNetlifyUser } = props;
 
   const [isTokenChecked, setIsTokenChecked] = useState(false);
   const [hasToken, setHasToken] = useState(false);
-  const [accountId, setAccountId] = useState('');
 
   useEffect(() => {
     if (!isTokenChecked && !hasToken) {
@@ -38,9 +34,9 @@ function Setup(props) {
     } else if (isTokenChecked && !hasToken) {
       setHasToken(false);
     } else if (isTokenChecked && hasToken) {
-      onGetNetlifyAccount(process.env.REACT_APP_NETLIFY_KEY);
+      onGetNetlifyUser(process.env.REACT_APP_NETLIFY_KEY);
     }
-  }, [hasToken, isTokenChecked, accountId, onGetNetlifyAccount]);
+  }, [hasToken, isTokenChecked, onGetNetlifyUser]);
 
   const showProgress = !isTokenChecked && !hasToken;
 
@@ -63,10 +59,10 @@ Setup.propTypes = propTypes;
 
 export default connectComponent(
   state => ({
-    isGetting: state.account.isGetting
+    isGetting: state.accounts.isGetting
   }),
   {
-    onGetNetlifyAccount: getNetlifyAccount
+    onGetNetlifyUser: getNetlifyUser
   },
   Setup
 );

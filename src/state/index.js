@@ -4,10 +4,12 @@ import { applyMiddleware, createStore, combineReducers } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 // Internal Dependencies
-import account from './account/reducers';
+import accounts from './accounts/reducers';
+import user from './user/reducers';
 
 const reducers = {
-  account
+  accounts,
+  user
 };
 
 // Squash all reducers into one
