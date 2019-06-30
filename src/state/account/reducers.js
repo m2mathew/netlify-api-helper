@@ -20,19 +20,19 @@ export const apiData = createReducer(initialState, {
   // TODO: Add PUT/POST data in this spot
 });
 
-export const isGetting = createReducer(null, {
-  [ACCCOUNT_GET_REQUEST]: (state, action) => action.id,
-  [ACCCOUNT_GET_SUCCESS]: () => null
+export const isGetting = createReducer(false, {
+  [ACCCOUNT_GET_REQUEST]: () => true,
+  [ACCCOUNT_GET_SUCCESS]: () => false
 });
 
-export const isPosting = createReducer(null, {
-  [ACCCOUNT_POST_REQUEST]: (state, action) => action.id,
-  [ACCCOUNT_POST_SUCCESS]: () => null
+export const isPosting = createReducer(false, {
+  [ACCCOUNT_POST_REQUEST]: () => true,
+  [ACCCOUNT_POST_SUCCESS]: () => false
 });
 
-export const isPutting = createReducer(null, {
-  [ACCCOUNT_PUT_REQUEST]: (state, action) => action.id,
-  [ACCCOUNT_PUT_SUCCESS]: () => null
+export const isPutting = createReducer(false, {
+  [ACCCOUNT_PUT_REQUEST]: () => true,
+  [ACCCOUNT_PUT_SUCCESS]: () => false
 });
 
 export default combineReducers({
