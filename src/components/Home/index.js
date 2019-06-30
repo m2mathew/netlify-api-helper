@@ -33,14 +33,27 @@ const ButtonLink = styled(Link)`
   color: inherit;
 `;
 
+const EmphasizedParagraph = styled.em`
+  font-weight: 600;
+`;
+
 // Component Definition
 function Home() {
+  const tokenText = (
+    <EmphasizedParagraph>Netlify API Token&trade;</EmphasizedParagraph>
+  );
+
   return (
     <Wrapper>
       <SectionTitle>Welcome, Friend!</SectionTitle>
       <p>
         This simple tool provides some of the basic functionality of Netlify's
         main app.
+      </p>
+      <p>
+        If you have your {tokenText} safe and secure, then we will pull up your
+        Netlify account information. If you still need to grab that {tokenText},
+        then the next page will help.
       </p>
       <p>
         To get started on this quest, click the button below to set up this app.

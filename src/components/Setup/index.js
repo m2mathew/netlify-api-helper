@@ -42,7 +42,7 @@ function Setup(props) {
 
   return (
     <Wrapper>
-      <SectionTitle>Let's get your Account info</SectionTitle>
+      <SectionTitle>Let's get your User info</SectionTitle>
       {showProgress && (
         <div>
           <p>We are checking for your API token...</p>
