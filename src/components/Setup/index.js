@@ -2,25 +2,49 @@
 import CircularProgress from '@material-ui/core/CircularProgress';
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
 
 // Internal Dependencies
 import SectionTitle from '../SectionTitle';
 import Wrapper from '../Wrapper';
 import { connectComponent } from '../../utils';
-import { getNetlifyUser } from '../../state/user/actions';
+import { getNetlifyUser, setNetlifyApiToken } from '../../state/user/actions';
+import DialogAddToken from './DialogAddToken';
 
 // Local Variables
 const propTypes = {
   isGetting: PropTypes.bool.isRequired,
-  onGetNetlifyUser: PropTypes.bool.isRequired
+  onGetNetlifyUser: PropTypes.bool.isRequired,
+  onSetNetlifyApiToken: PropTypes.bool.isRequired
 };
+
+const AddTokenButton = styled.button`
+  background: linear-gradient(160deg, #6102cc 55%, #450291 95%);
+  color: #fff;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  margin-top: 2em;
+  padding: 12px 32px;
+
+  ::before {
+    content: '🤓 ';
+  }
+
+  &:hover {
+    color: #eee;
+  }
+`;
 
 // Component Definition
 function Setup(props) {
-  const { isGetting, onGetNetlifyUser } = props;
+  const { isGetting, onGetNetlifyUser, onSetNetlifyApiToken } = props;
 
   const [isTokenChecked, setIsTokenChecked] = useState(false);
   const [hasToken, setHasToken] = useState(false);
+  const [isDialogAddTokenOpen, setIsDialogAddTokenOpen] = useState(false);
 
   useEffect(() => {
     if (!isTokenChecked && !hasToken) {
@@ -30,7 +54,7 @@ function Setup(props) {
           setHasToken(true);
         }
         setIsTokenChecked(true);
-      }, 3000);
+      }, 1000);
     } else if (isTokenChecked && !hasToken) {
       setHasToken(false);
     } else if (isTokenChecked && hasToken) {
@@ -39,6 +63,10 @@ function Setup(props) {
   }, [hasToken, isTokenChecked, onGetNetlifyUser]);
 
   const showProgress = !isTokenChecked && !hasToken;
+
+  function handleToggleDialogAddToken() {
+    return setIsDialogAddTokenOpen(!isDialogAddTokenOpen);
+  }
 
   return (
     <Wrapper>
@@ -49,8 +77,23 @@ function Setup(props) {
           <CircularProgress size={50} thickness={5} />
         </div>
       )}
-      {!showProgress && hasToken && <p>YES token</p>}
-      {!showProgress && !hasToken && <p>NO token</p>}
+      {!showProgress && hasToken && (
+        <p>Thanks for providing your token. Searching for your user info...</p>
+      )}
+      {!showProgress && !hasToken && (
+        <div>
+          <p>No Netlify API Token found. That token is our everything.</p>
+          <p>Please click this button to add it to the app.</p>
+          <AddTokenButton onClick={handleToggleDialogAddToken}>
+            Add Token
+          </AddTokenButton>
+        </div>
+      )}
+      <DialogAddToken
+        isOpen={isDialogAddTokenOpen}
+        onClose={handleToggleDialogAddToken}
+        onSetNetlifyApiToken={onSetNetlifyApiToken}
+      />
     </Wrapper>
   );
 }
@@ -62,7 +105,8 @@ export default connectComponent(
     isGetting: state.accounts.isGetting
   }),
   {
-    onGetNetlifyUser: getNetlifyUser
+    onGetNetlifyUser: getNetlifyUser,
+    onSetNetlifyApiToken: setNetlifyApiToken
   },
   Setup
 );

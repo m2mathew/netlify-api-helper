@@ -4,6 +4,7 @@ import { combineReducers } from 'redux';
 // Internal Dependencies
 import createReducer from '../create-reducer';
 import {
+  SET_NETLIFY_API_TOKEN,
   USER_GET_REQUEST,
   USER_GET_SUCCESS,
   USER_POST_REQUEST,
@@ -13,12 +14,16 @@ import {
   USER_ERROR_CAUGHT
 } from '../action-types';
 
-const initialState = {};
-
 // Reducer Definitions
-export const apiData = createReducer(initialState, {
+const initialApiDataState = {};
+export const apiData = createReducer(initialApiDataState, {
   [USER_GET_SUCCESS]: (state, action) => action.res
   // TODO: Add PUT/POST data in this spot
+});
+
+const initialApiTokenState = '';
+export const apiToken = createReducer(initialApiTokenState, {
+  [SET_NETLIFY_API_TOKEN]: (state, action) => action.token
 });
 
 export const isGetting = createReducer(false, {
@@ -41,6 +46,7 @@ export const isPutting = createReducer(false, {
 
 export default combineReducers({
   apiData,
+  apiToken,
   isGetting,
   isPosting,
   isPutting

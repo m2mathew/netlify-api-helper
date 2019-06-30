@@ -1,5 +1,6 @@
 // Internal Dependencies
 import {
+  SET_NETLIFY_API_TOKEN,
   USER_ERROR_CAUGHT,
   USER_GET_REQUEST,
   USER_GET_SUCCESS,
@@ -10,6 +11,11 @@ import {
 } from '../action-types';
 
 // Begin Action Creators
+export const netlifyApiTokenSet = token => ({
+  type: SET_NETLIFY_API_TOKEN,
+  token
+});
+
 export const userCaughtError = err => ({
   type: USER_ERROR_CAUGHT,
   err

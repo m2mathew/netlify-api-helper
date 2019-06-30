@@ -40,7 +40,9 @@ const EmphasizedParagraph = styled.em`
 // Component Definition
 function Home() {
   const tokenText = (
-    <EmphasizedParagraph>Netlify API Token&trade;</EmphasizedParagraph>
+    <a href="https://app.netlify.com/user/applications">
+      <EmphasizedParagraph>Netlify API Token&trade;</EmphasizedParagraph>
+    </a>
   );
 
   return (
