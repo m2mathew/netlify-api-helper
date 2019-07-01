@@ -33,18 +33,8 @@ const ButtonLink = styled(Link)`
   color: inherit;
 `;
 
-const EmphasizedParagraph = styled.em`
-  font-weight: 600;
-`;
-
 // Component Definition
 function Home() {
-  const tokenText = (
-    <a href="https://app.netlify.com/user/applications">
-      <EmphasizedParagraph>Netlify API Token&trade;</EmphasizedParagraph>
-    </a>
-  );
-
   return (
     <Wrapper>
       <SectionTitle>Welcome, Friend!</SectionTitle>
@@ -53,15 +43,12 @@ function Home() {
         main app.
       </p>
       <p>
-        If you have your {tokenText} safe and secure, then we will pull up your
-        Netlify account information. If you still need to grab that {tokenText},
-        then the next page will help.
+        We will authenticate your netlify account with this application. Then
+        you can look around at your Netlify sites and user information.
       </p>
-      <p>
-        To get started on this quest, click the button below to set up this app.
-      </p>
+      <p>To get started on this quest, click the button below!</p>
       <ButtonLink to="/setup/">
-        <StartButton>Setup</StartButton>
+        <StartButton>Log in with Netlify</StartButton>
       </ButtonLink>
     </Wrapper>
   );

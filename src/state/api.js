@@ -8,6 +8,10 @@ import axios from 'axios';
  *  Uses OAuth2 because we are:
  *    "making a public integration with Netlify for others to enjoy"
  *
+ *  YouTube video that explains how to set up OAuth2 with Netlify
+ *    - This is 🔥
+ *    - https://www.youtube.com/watch?v=LN8cL2yPR3c
+ *
  */
 
 export const authenticateWithNetlify = () => {
