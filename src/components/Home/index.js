@@ -1,11 +1,11 @@
 // External Dependencies
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 // Internal Dependencies
 import SectionTitle from '../SectionTitle';
 import Wrapper from '../Wrapper';
+import { csrfToken } from '../../utils/auth';
 
 // Local Variables
 const StartButton = styled.button`
@@ -28,13 +28,21 @@ const StartButton = styled.button`
   }
 `;
 
-const ButtonLink = styled(Link)`
-  text-decoration: none;
-  color: inherit;
-`;
-
 // Component Definition
 function Home() {
+  function handleAuth(e) {
+    e.preventDefault();
+    const state = csrfToken();
+    const { location, localStorage } = window;
+
+    /* Set csrf token */
+    localStorage.setItem(state, 'true');
+
+    /* Do redirect */
+    const redirectTo = `${location.origin}${location.pathname}`;
+    window.location.href = `/.netlify/functions/auth-start?url=${redirectTo}&csrf=${state}`;
+  }
+
   return (
     <Wrapper>
       <SectionTitle>Welcome, Friend!</SectionTitle>
@@ -47,9 +55,7 @@ function Home() {
         you can look around at your Netlify sites and user information.
       </p>
       <p>To get started on this quest, click the button below!</p>
-      <ButtonLink to="/setup/">
-        <StartButton>Log in with Netlify</StartButton>
-      </ButtonLink>
+      <StartButton onClick={handleAuth}>Log in with Netlify</StartButton>
     </Wrapper>
   );
 }

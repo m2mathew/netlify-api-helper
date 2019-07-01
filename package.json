@@ -21,6 +21,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:functions": "cd functions && npm install",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "pretty": "prettier --single-quote --trailing-comma --write 'src/**/*.js'"
