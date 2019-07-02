@@ -68,7 +68,7 @@ function Home(props) {
     if (response.token && !localStorage.getItem(response.csrf)) {
       alert('Token invalid. Please try to login again');
       return;
-    } else {
+    } else if (response.token && !hasToken) {
       // We deocde and store the netlify token sent via OAuth
       onSetNetlifyApiToken(window.atob(response.token));
     }
