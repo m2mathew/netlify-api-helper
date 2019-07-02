@@ -8,12 +8,12 @@ import Wrapper from '../Wrapper';
 // Local Variables
 
 // Component Definition
-function Account() {
+function Settings() {
   return (
     <Wrapper>
-      <SectionTitle>Account section</SectionTitle>
+      <SectionTitle>Settings section</SectionTitle>
     </Wrapper>
   );
 }
 
-export default Account;
+export default Settings;

@@ -104,7 +104,7 @@ function TopNav(props) {
             <StyledNavLink to="/sites/">Sites</StyledNavLink>
           </ListItem>
           <ListItem>
-            <StyledNavLink to="/account/">Account</StyledNavLink>
+            <StyledNavLink to="/settings/">Settings</StyledNavLink>
           </ListItem>
           <ListItem>
             <StyledButton onClick={handleLogout}>Logout</StyledButton>
@@ -122,7 +122,7 @@ export default connectComponent(
     const { apiData, apiToken, isGetting: isGettingUser } = state.user;
 
     return {
-      isLoggedIn: !!apiToken && apiData && !isGettingUser
+      isLoggedIn: Boolean(apiToken && apiData && !isGettingUser)
     };
   },
   {},
