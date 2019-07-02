@@ -77,6 +77,7 @@ const StyledNavLink = styled(NavLink)`
 const StyledButton = styled.button`
   border: none;
   background: none;
+  cursor: pointer;
   color: hotpink;
   text-decoration: none;
   font-size: 16px;
