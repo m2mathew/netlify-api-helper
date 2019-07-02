@@ -6,7 +6,6 @@ import React, { useEffect } from 'react';
 // Internal Dependencies
 import Options from './Options';
 import Welcome from './Welcome';
-import Wrapper from '../Wrapper';
 import { connectComponent } from '../../utils';
 import { csrfToken } from '../../utils/auth';
 import { parseHash, removeHash } from '../../utils/auth';

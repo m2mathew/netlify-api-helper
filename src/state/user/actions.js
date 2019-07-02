@@ -13,18 +13,11 @@ export const setNetlifyApiToken = token => dispatch =>
 
 export const getNetlifyUser = () => (dispatch, getState) => {
   dispatch(userGetRequest());
-  return (
-    netlifyClient(getState().user.apiToken)
-      // TODO: update to correct method
-      .getCurrentUser()
-      .then(res => {
-        console.log('getNetlifyUser: res :', res);
-        dispatch(userGetSuccess(res));
-      })
-      .catch(err => {
-        console.log('getNetlifyUser: err :', err);
-        dispatch(userCaughtError(err));
-        return err;
-      })
-  );
+  return netlifyClient(getState().user.apiToken)
+    .getCurrentUser()
+    .then(res => dispatch(userGetSuccess(res)))
+    .catch(err => {
+      dispatch(userCaughtError(err));
+      return err;
+    });
 };

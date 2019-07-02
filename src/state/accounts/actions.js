@@ -13,12 +13,8 @@ export const getNetlifyAccount = () => dispatch => {
     netlifyClient
       // TODO: update to correct method
       .getCurrentUser()
-      .then(res => {
-        console.log('getNetlifyAccount : res :', res);
-        dispatch(accountsGetSuccess(res));
-      })
+      .then(res => dispatch(accountsGetSuccess(res)))
       .catch(err => {
-        console.log('getNetlifyAccount : err :', err);
         dispatch(accountsCaughtError(err));
         return err;
       })
