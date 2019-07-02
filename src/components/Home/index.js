@@ -1,16 +1,16 @@
 // External Dependencies
+import CircularProgress from '@material-ui/core/CircularProgress';
 import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
-import styled from 'styled-components';
 
 // Internal Dependencies
-import SectionTitle from '../SectionTitle';
+import Options from './Options';
+import Welcome from './Welcome';
 import Wrapper from '../Wrapper';
 import { connectComponent } from '../../utils';
 import { csrfToken } from '../../utils/auth';
 import { parseHash, removeHash } from '../../utils/auth';
 import { getNetlifyUser, setNetlifyApiToken } from '../../state/user/actions';
-import { CircularProgress } from '@material-ui/core';
 
 // Local Variables
 const propTypes = {
@@ -24,26 +24,6 @@ const propTypes = {
 const defaultProps = {
   user: null
 };
-
-const StartButton = styled.button`
-  background: linear-gradient(160deg, rebeccapurple 30%, #280154 90%);
-  color: #fff;
-  cursor: pointer;
-  font-size: 20px;
-  font-weight: 600;
-  border: none;
-  border-radius: 5px;
-  margin-top: 2em;
-  padding: 12px 32px;
-
-  ::before {
-    content: '🚀 ';
-  }
-
-  &:hover {
-    color: #eee;
-  }
-`;
 
 // Component Definition
 function Home(props) {
@@ -108,36 +88,12 @@ function Home(props) {
     window.location.href = `/.netlify/functions/auth-start?url=${redirectTo}&csrf=${state}`;
   }
 
-  return (
-    <Wrapper>
-      <SectionTitle>Welcome, Friend!</SectionTitle>
-      <p>
-        This simple tool provides some of the basic functionality of Netlify's
-        main app.
-      </p>
-      {!user ? (
-        <>
-          <p>
-            We will authenticate your netlify account with this application.
-            Then you can look around at your Netlify sites and user information.
-          </p>
-          <p>To get started on this quest, click the button below!</p>
-          <StartButton onClick={handleAuth}>Log in with Netlify</StartButton>
-        </>
-      ) : (
-        <>
-          <h4>User Data</h4>
-          {isGettingUser ? (
-            <CircularProgress />
-          ) : (
-            <>
-              <p>{user.full_name}</p>
-              <p>{user.email}</p>
-            </>
-          )}
-        </>
-      )}
-    </Wrapper>
+  return !user ? (
+    <Welcome onClickLoginButton={handleAuth} />
+  ) : isGettingUser ? (
+    <CircularProgress size={50} thickness={5} />
+  ) : (
+    <Options user={user} />
   );
 }
 
