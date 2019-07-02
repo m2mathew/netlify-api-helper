@@ -13,10 +13,10 @@ import {
   ACCCOUNTS_ERROR_CAUGHT
 } from '../action-types';
 
-const initialState = {};
+const accountInitialState = null;
 
 // Reducer Definitions
-export const apiData = createReducer(initialState, {
+export const apiData = createReducer(accountInitialState, {
   [ACCCOUNTS_GET_SUCCESS]: (state, action) => action.res
   // TODO: Add PUT/POST data in this spot
 });

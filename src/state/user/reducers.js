@@ -15,7 +15,7 @@ import {
 } from '../action-types';
 
 // Reducer Definitions
-const initialApiDataState = {};
+const initialApiDataState = null;
 export const apiData = createReducer(initialApiDataState, {
   [USER_GET_SUCCESS]: (state, action) => action.res
   // TODO: Add PUT/POST data in this spot
