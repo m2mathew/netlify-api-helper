@@ -5,10 +5,12 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 // Internal Dependencies
 import accounts from './accounts/reducers';
+import sites from './sites/reducers';
 import user from './user/reducers';
 
 const reducers = {
   accounts,
+  sites,
   user
 };
 

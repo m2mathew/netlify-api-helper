@@ -45,8 +45,6 @@ const ListItem = styled.li`
 function Options(props) {
   const { user } = props;
 
-  console.log('Options : user :', user);
-
   return (
     <Wrapper>
       <SectionTitle>Right on, {user.full_name}</SectionTitle>

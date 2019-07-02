@@ -34,7 +34,7 @@ const Key = styled.strong`
 `;
 
 // Component Definition
-function UesrInfo(props) {
+function UserInfo(props) {
   const { user } = props;
 
   if (!user) {
@@ -73,5 +73,5 @@ export default connectComponent(
     };
   },
   {},
-  UesrInfo
+  UserInfo
 );

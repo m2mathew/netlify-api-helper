@@ -12,7 +12,7 @@ import Wrapper from '../Wrapper';
 function Settings() {
   return (
     <Wrapper>
-      <SectionTitle>Settings section</SectionTitle>
+      <SectionTitle>Settings</SectionTitle>
       <UserInfo />
     </Wrapper>
   );
