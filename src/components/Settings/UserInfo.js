@@ -1,6 +1,7 @@
 // External Dependencies
 import React from 'react';
 import styled from 'styled-components';
+import moment from 'moment';
 
 // Internal Dependencies
 import { connectComponent } from '../../utils';
@@ -57,7 +58,7 @@ function UserInfo(props) {
           <Key>Number of Sites:</Key> {user.site_count}
         </p>
         <p>
-          <Key>Member since:</Key> {user.created_at}
+          <Key>Member since:</Key> {moment(user.created_at).format('M-D-Y')}
         </p>
       </DataContainer>
     </InfoSection>
