@@ -11,8 +11,6 @@ import { connectComponent } from '../../utils';
 import { getNetlifyUser, setNetlifyApiToken } from '../../state/user/actions';
 import DialogAddToken from './DialogAddToken';
 
-import { authenticateWithNetlify } from '../../state/api';
-
 // Local Variables
 const propTypes = {
   isGetting: PropTypes.bool.isRequired,
@@ -49,7 +47,6 @@ function Setup(props) {
   const [isDialogAddTokenOpen, setIsDialogAddTokenOpen] = useState(false);
 
   useEffect(() => {
-    authenticateWithNetlify();
     if (!isTokenChecked && !hasToken) {
       // While we check for the token, we set an progress indicator
       setTimeout(() => {
@@ -61,7 +58,7 @@ function Setup(props) {
     } else if (isTokenChecked && !hasToken) {
       setHasToken(false);
     } else if (isTokenChecked && hasToken) {
-      onGetNetlifyUser(process.env.REACT_APP_NETLIFY_KEY);
+      onGetNetlifyUser();
     }
   }, [hasToken, isTokenChecked, onGetNetlifyUser]);
 

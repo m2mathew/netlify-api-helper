@@ -11,10 +11,10 @@ import {
 export const setNetlifyApiToken = token => dispatch =>
   dispatch(netlifyApiTokenSet(token));
 
-export const getNetlifyUser = () => dispatch => {
+export const getNetlifyUser = () => (dispatch, getState) => {
   dispatch(userGetRequest());
   return (
-    netlifyClient
+    netlifyClient(getState().user.apiToken)
       // TODO: update to correct method
       .getCurrentUser()
       .then(res => {
