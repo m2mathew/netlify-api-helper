@@ -3,6 +3,7 @@ import React from 'react';
 
 // Internal Dependencies
 import SectionTitle from '../SectionTitle';
+import UserInfo from './UserInfo';
 import Wrapper from '../Wrapper';
 
 // Local Variables
@@ -12,6 +13,7 @@ function Settings() {
   return (
     <Wrapper>
       <SectionTitle>Settings section</SectionTitle>
+      <UserInfo />
     </Wrapper>
   );
 }

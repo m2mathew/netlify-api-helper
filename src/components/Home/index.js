@@ -34,8 +34,6 @@ function Home(props) {
     user
   } = props;
 
-  console.log('Home : user :', user);
-
   useEffect(() => {
     const response = parseHash(window.location.hash);
 
