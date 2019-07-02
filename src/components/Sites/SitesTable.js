@@ -21,10 +21,10 @@ const DataRow = styled.div`
   align-items: center;
   font-size: 15px;
   padding: 10px 0 10px 16px;
+  border-bottom: 1px solid #ddd;
 
   &:hover {
     background: #ddd;
-    cursor: pointer;
   }
 `;
 
