@@ -1,9 +1,17 @@
 // External Dependencies
+import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 import { Link, NavLink } from 'react-router-dom';
 
+// Internal Dependencies
+import { connectComponent } from '../utils';
+
 // Local Variables
+const propTypes = {
+  isLoggedIn: PropTypes.bool.isRequired
+};
+
 const NavWrapper = styled.nav`
   background: #0e1e24;
   display: flex;
@@ -57,7 +65,7 @@ const StyledHomeLink = styled(Link)`
 
 const StyledNavLink = styled(NavLink)`
   text-decoration: none;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
 
   &.active {
@@ -66,23 +74,57 @@ const StyledNavLink = styled(NavLink)`
   }
 `;
 
+const StyledButton = styled.button`
+  border: none;
+  background: none;
+  color: hotpink;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 0;
+`;
+
 // Component Definition
-function TopNav() {
+function TopNav(props) {
+  const { isLoggedIn } = props;
+
+  function handleLogout(e) {
+    e.preventDefault();
+    window.location.href = '/';
+  }
+
   return (
     <NavWrapper>
       <SiteTitle>
         <StyledHomeLink to="/">Netlify API Helper</StyledHomeLink>
       </SiteTitle>
-      <List>
-        <ListItem>
-          <StyledNavLink to="/sites/">Sites</StyledNavLink>
-        </ListItem>
-        <ListItem>
-          <StyledNavLink to="/account/">Account</StyledNavLink>
-        </ListItem>
-      </List>
+      {isLoggedIn && (
+        <List>
+          <ListItem>
+            <StyledNavLink to="/sites/">Sites</StyledNavLink>
+          </ListItem>
+          <ListItem>
+            <StyledNavLink to="/account/">Account</StyledNavLink>
+          </ListItem>
+          <ListItem>
+            <StyledButton onClick={handleLogout}>Logout</StyledButton>
+          </ListItem>
+        </List>
+      )}
     </NavWrapper>
   );
 }
 
-export default TopNav;
+TopNav.propTypes = propTypes;
+
+export default connectComponent(
+  state => {
+    const { apiData, apiToken, isGetting: isGettingUser } = state.user;
+
+    return {
+      isLoggedIn: !!apiToken && apiData && !isGettingUser
+    };
+  },
+  {},
+  TopNav
+);

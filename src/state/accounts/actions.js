@@ -7,12 +7,12 @@ import {
 } from './action-creators';
 
 // Begin Actions
-export const getNetlifyAccount = () => dispatch => {
+export const getNetlifyAccounts = () => (dispatch, getState) => {
   dispatch(accountsGetRequest());
   return (
-    netlifyClient
+    netlifyClient(getState().user.apiToken)
       // TODO: update to correct method
-      .getCurrentUser()
+      .listAccountsForUser()
       .then(res => dispatch(accountsGetSuccess(res)))
       .catch(err => {
         dispatch(accountsCaughtError(err));
